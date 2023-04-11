@@ -79,7 +79,6 @@ LinkedQueue<T>::~LinkedQueue()
 	T temp;
 	while (dequeue(temp));
 }
-//hi
 template <typename T >
 LinkedQueue<T>::LinkedQueue(const LinkedQueue<T>& LQ)
 {
