@@ -1,6 +1,7 @@
 #pragma once
 #include "Node.h"
 #include "Queue.h"
+#include "LinkedQueue.h"
 #include <vector>
 using namespace std;
 
@@ -56,6 +57,14 @@ public:
 			return false;
 		frontEntry = frontPtr->getItem();
 		return true;
+	}
+	T print(PriorityQueue <T> Q)
+	{
+		T Pq;
+		cout << "Priority Queue contents:";
+		while (Q.dequeue(Pq))
+			cout << Pq << " ";
+		cout << endl;
 	}
 	~PriorityQueue()
 	{

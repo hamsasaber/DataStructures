@@ -16,6 +16,7 @@ public:
 	bool enqueue(const T& newEntry);
 	bool dequeue(const T& frontEntry);
 	bool peek(T& frontEntry) const;
+	T print(LinkedQueue <T> Q);
 	~LinkedQueue();
 	LinkedQueue(const LinkedQueue<T>& LQ);
 
@@ -72,10 +73,19 @@ bool LinkedQueue<T>::peek(T& frontEntry) const
 	return true;
 }
 
+template <typename T>
+T LinkedQueue <T> ::print(LinkedQueue <T> Q)
+{
+	T Qu;
+	cout << "Linked Queue contents:";
+	while (Q.dequeue(Qu))
+		cout << Qu << " ";
+	cout << endl;
+}
+
 template <typename T >
 LinkedQueue<T>::~LinkedQueue()
 {
-
 	T temp;
 	while (dequeue(temp));
 }
