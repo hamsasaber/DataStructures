@@ -75,11 +75,11 @@ bool LinkedQueue<T>::peek(T& frontEntry) const
 template <typename T >
 LinkedQueue<T>::~LinkedQueue()
 {
-	//hi
+
 	T temp;
 	while (dequeue(temp));
 }
-
+//hi
 template <typename T >
 LinkedQueue<T>::LinkedQueue(const LinkedQueue<T>& LQ)
 {
