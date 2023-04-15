@@ -14,9 +14,9 @@ public:
 	LinkedQueue();
 	bool isEmpty() const;
 	bool enqueue(const T& newEntry);
-	bool dequeue(const T& frontEntry);
+	bool dequeue(T& frontEntry);
 	bool peek(T& frontEntry) const;
-	T print(LinkedQueue <T> Q);
+	T print();
 	~LinkedQueue();
 	LinkedQueue(const LinkedQueue<T>& LQ);
 
@@ -33,7 +33,7 @@ LinkedQueue<T>::LinkedQueue()
 template <typename T >
 bool LinkedQueue<T>::isEmpty() const
 {
-	return( frontPtr==nullptr)
+	return (frontPtr == nullptr);
 }
 
 template <typename T >
@@ -49,7 +49,7 @@ bool LinkedQueue<T>::enqueue(const T& newEntry)
 }
 
 template <typename T >
-bool LinkedQueue<T>::dequeue(const T& frontEntry)
+bool LinkedQueue<T>::dequeue(T& frontEntry)
 {
 	if (isEmpty())
 		return false;
@@ -74,13 +74,14 @@ bool LinkedQueue<T>::peek(T& frontEntry) const
 }
 
 template <typename T>
-T LinkedQueue <T> ::print(LinkedQueue <T> Q)
+T LinkedQueue <T> ::print()
 {
-	T Qu;
+	T Q;
 	cout << "Linked Queue contents:";
-	while (Q.dequeue(Qu))
-		cout << Qu << " ";
+	while (dequeue(Q))
+		cout << Q<< " ";
 	cout << endl;
+	return 0;
 }
 
 template <typename T >
