@@ -17,25 +17,31 @@ public:
 		backPtr = nullptr;
 		frontPtr = nullptr;
 	}
+	bool isEmpty()
+	{
+		return (frontPtr == nullptr);
+	}
+
 	bool enqueue(const T& newEntry, int value)
 	{
-		Node<T>* newNodePtr = new Node<T>(newEntry);
-		Node* ptr;
-		ptr = new Node;
-		newNodePtr->setItem = newEntry;
-		newNodePtr->priority = value;
-		if (frontPtr == NULL || priority <= frontPtr->priority)
+		Node<T>* newNodeptr = new Node<T>(newEntry);
+		Node<T>* ptr = new Node<T>;
+		newNodeptr->setItem = newEntry;
+		newNodeptr->setpriority = value;
+		if (frontPtr == NULL || priority <= frontPtr->getpriority())
 		{
-			newNodePtr->getnext() = frontPtr;
-			frontPtr = newNodePtr;
+			newNodeptr->getNext() = frontPtr;
+			frontPtr = newNodeptr;
 		}
 		else
 		{
 			ptr = frontPtr;
-			while (ptr->getnext() && priority >= ptr->priority)
-				ptr = ptr->getnext();
-			newNodePtr->getnext() = ptr->getnext();
-			ptr->getnext() = newNodePtr;
+			while (ptr->getNext() && priority >= ptr->getpriority())
+			{
+				ptr = ptr->getNext();
+				newNodeptr->getNext() = ptr->getNext();
+				ptr->getNext() = newNodeptr;
+			}
 		}
 	}
 	bool dequeue(const T& frontEntry)
@@ -58,11 +64,11 @@ public:
 		frontEntry = frontPtr->getItem();
 		return true;
 	}
-	T print(PriorityQueue <T> Q)
+	T print()
 	{
 		T Pq;
 		cout << "Priority Queue contents:";
-		while (Q.dequeue(Pq))
+		while (dequeue(Pq))
 			cout << Pq << " ";
 		cout << endl;
 	}

@@ -2,6 +2,7 @@
 #include "Node.h"
 #include "Queue.h"
 #include <vector>
+#include <iostream>
 using namespace std;
 
 template <typename T >
@@ -16,7 +17,7 @@ public:
 	bool enqueue(const T& newEntry);
 	bool dequeue(T& frontEntry);
 	bool peek(T& frontEntry) const;
-	T print();
+	T print() const;
 	~LinkedQueue();
 	LinkedQueue(const LinkedQueue<T>& LQ);
 
