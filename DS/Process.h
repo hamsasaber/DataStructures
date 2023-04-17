@@ -26,8 +26,6 @@ public:
 	int getRT();
 	int getCT();
 	int getTT();
-	int geti_o();
-	void seti_o(T i_o);
 	void setTRT();
 	int getTRT();
 	void setWT();
