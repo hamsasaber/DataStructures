@@ -75,7 +75,7 @@ bool LinkedQueue<T>::peek(T& frontEntry) const
 }
 
 template <typename T>
-T LinkedQueue <T> ::print()
+T LinkedQueue <T> ::print() const
 {
 	T Q;
 	cout << "Linked Queue contents:";

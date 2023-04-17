@@ -3,11 +3,26 @@ template <class T>
 class Queue
 {
 public:
-	virtual bool isEmpty() const = 0;
-	virtual bool enqueue(const T& newEntry) = 0;
-	virtual bool dequeue(T& FrontEntry) = 0;
-	virtual bool peek(T& FrontEntry) const = 0;
-	virtual T print() const =0;
+	virtual bool isEmpty() const
+	{
+
+	}
+	virtual bool enqueue(const T& newEntry)
+	{
+
+	}
+	virtual bool dequeue(T& FrontEntry)
+	{
+
+	}
+	virtual bool peek(T& FrontEntry) const
+	{
+
+	}
+	virtual T print() const
+	{
+
+	}
 	virtual ~Queue()
 	{}
 };
