@@ -20,21 +20,18 @@ Processor::Processor()
 
 void Processor::setSchedulingState(bool u)
 {
-	u = SchedulingState;
+	SchedulingState=u;
 }
 
 bool Processor::getSchedulingState()
 {
-	return false;
+	return SchedulingState;
 }
 
-void Processor::EnqueueReady(Process p)
-{
-}
 
 int Processor::getFinishTime()
 {
-	return 0;
+	return FinishTime;
 }
 
 int Processor::getRDYCount()
@@ -42,8 +39,26 @@ int Processor::getRDYCount()
 	return RDYCount;
 }
 
-string getName()
+void Processor::IncrementRDY()
 {
-	string n = " name";
-	return n;
+	RDYCount++;
 }
+
+void Processor::setID(int x)
+{
+	ID = x;
+}
+
+Process* Processor::getRun()
+{
+	if (Run != NULL)
+	{
+		return Run;
+	}
+}
+
+void Processor::setRun(Process*r)
+{
+	Run = r;
+}
+
