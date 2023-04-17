@@ -12,8 +12,6 @@ int Process::getAT() { return AT; }
 int Process::getRT() { return RT; }
 int Process::getCT() { return CT; }
 int Process::getTT() { return TT; }
-void Process::seti_o(int i_o) { i_o = I_O; }
-int Process::geti_o() { return I_O; }
 
 void Process ::setTRT()
 {
