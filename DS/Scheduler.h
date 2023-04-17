@@ -3,7 +3,7 @@
 #include"Processor.h"
 #include "RR_Processor.h"
 #include "FCFS_Processor.h"
-#include "SJF.h"
+#include"SJF_Processor.h"
 class Scheduler
 {
 private:
@@ -11,7 +11,7 @@ private:
 	LinkedQueue<Process> BLK;
 	LinkedQueue<Process> TRM; //queue? //order doesnt matter so linked list
 	//is trm number in order?
-	Processor** processor;
+	Processor**processor;
 	int BLKCount;
 	int TRMCount;
 	int RUNCount;
@@ -22,15 +22,16 @@ private:
 	int RTF, MaxW, STL, ForkProbability;
 	//int ForkProbability;//float?
 	int NumberOfProcesses; ///N???
-	int  SIGKILLCount;
+	int  SIGKILLCount; 
 	//int SIGKILL here or ui?
 	//int n; //number of processors? already 3ndy
-	Process** Running;
+	Process** Running; 
 	//array of running processors here //processes wala processors??
 public:
 	Scheduler();
-	void MoveToRDY(Process p);
-	void MoveToBLK(Process a);
+	void AddNew(Process p);
+	void MoveToRDY(int processorid); //revise
+	void MoveToBLK(Process p);
 	void MoveToTRM(Process b);
 	void Simulate();
 	void Load();
@@ -45,5 +46,7 @@ public:
 	void Load();
 	//void PrintBLK();
 	void CreateRunningArr();//itterate on each processor and add running process to it  and increment counter
+	bool IsTerminated();
 
 };
+
