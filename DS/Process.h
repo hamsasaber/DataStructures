@@ -20,7 +20,7 @@ private:
 	bool ORPH;
 	Queue <NodeI_O>I_O;
 public:
-	Process(int id, int at, int rt, int ct, int tt);
+	Process(int id=0, int at=0, int rt=0, int ct=0, int tt=0);
 	int getPID();
 	int getAT();
 	int getRT();
@@ -42,6 +42,8 @@ public:
 	bool getTRM();
 	void setORPH(bool f);
 	bool getORPH();
+	/*bool operator <=(Process&  Process2);
+	bool operator >=(Process& Process2);*/
 };
 
 

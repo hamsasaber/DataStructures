@@ -3,7 +3,7 @@
 #include"Processor.h"
 #include "RR_Processor.h"
 #include "FCFS_Processor.h"
-#include"SJF_Processor.h"
+#include "SJF.h"
 class Scheduler
 {
 private:

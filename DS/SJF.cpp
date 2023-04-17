@@ -17,10 +17,6 @@ void SJF::EnqueueReady(Process p, int CT)
 	RDYCount++;
 }
 
-void SJF::PrintRDY(Process p)
-{
-	p.print();
-}
 void SJF::MoveToRun(Process p)
 {
 	
@@ -40,3 +36,9 @@ string SJF::getName()
 	string n = "SJF_P";
 	return n;
 }
+
+void SJF::dequeueRDY(Process p)
+{
+	RDY_SJF.dequeue(p);
+}
+

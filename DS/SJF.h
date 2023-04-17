@@ -12,6 +12,6 @@ public:
     void SchedulingAlgo();
     void EnqueueReady(Process p, int CT);
     void MoveToRun(Process a); 
-    void PrintRDY(Process p);
+    void dequeueRDY(Process p);
     string getName();
 };

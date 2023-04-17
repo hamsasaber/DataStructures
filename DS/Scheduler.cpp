@@ -98,7 +98,7 @@ void Scheduler::Simulate()
                 {
                     MoveToBLK(*processor[i]->getRun());
                     processor[i]->setRun(NULL);
-                    processor[i]->setSchedulingState(0);
+                    processor[i]->setSchedulingState(0); //schedulingstate = 0 means idle
                     RUNCount--;
                     BLKCount++;
                 }
@@ -117,7 +117,7 @@ void Scheduler::Simulate()
                 }
                 if (processor[i]->getRun() != NULL)
                 {
-                    //processor[i]->getRun()->//DecrementCPUTime(); function in process
+                    processor[i]->getRun()->DecrementCPUTime(); //function in process
                 }
             }
             srand(time(0));
@@ -136,38 +136,20 @@ void Scheduler::Simulate()
            
             
         }
+        for (int i = 0; i < NF; i++)
+        {
+            srand(time(0));
+            int random = (1 + (NF - 1)) * rand();
+            Process p;
+            processor[random]->dequeueRDY(p);
+            TRMCount++;
+            NF--;
+
+        }
+        
         TimeStep++;
     }
-    //    int numNewProcesses = generateRandomNumber();
-    //    for (int i = 0; i < numNewProcesses; i++) {
-    //        Process* newProcess = new Process(getchildID(), timestep);
-    //        addToNewList(newProcess);
-    //        incrementchildID();
-    //    }
-
-    //    // Add processes from the new list to the ready lists
-    //    addProcessesToReadyLists(timestep);
-
-    //    // Check for any blocked processes that have completed their I/O operations
-    //    checkBlockedProcesses(timestep);
-
-    //    // Schedule processes for execution
-    //    scheduleProcesses(timestep);
-
-    //    // Print the current state of the system
-    //    cout << "Timestep " << timestep << ":" << endl;
-    //    cout << "============================================" << endl;
-    //    printProcessorList();
-    //    printReadyLists();
-    //    printBlockedList();
-    //    printTerminatedList();
-    //    cout << "============================================" << endl << endl;
-
-    //    timestep++;
-
-    //    // Check if all processes have terminated
-    //    allIsTerminated = checkAllProcessesTerminated();
-    //}
+   
 }
 
 int Scheduler::getTimeSlice()
@@ -196,7 +178,7 @@ void Scheduler::CreateProcessor()
     }
     for (int i = NF; i < NS+NF; i++)
     {
-        SJF_Processor P2;
+        SJF P2;
         processor[i] = &P2;
     }
     for (int i = NS; i < NR+NF+NS; i++)
@@ -223,13 +205,13 @@ void Scheduler::Load()
     {
         for (int j = 1; j <= NumberOfProcesses; j++)
         {
-            //Input >> AT >> PID >> CT >> N;
-            /*for (int i = 0; i <= N; i++)
+            Input >> AT >> PID >> CT >> N;
+            for (int i = 0; i <= N; i++)
             {
                 Input.ignore(1);
                 Input >> IO_R[i]; Input.ignore(1);
                 Input >> IO_D[i];  Input.ignore(1);
-            }*/
+            }
         }
         for (int y = 1; y <= NumberOfProcesses; y++)
         {
@@ -242,6 +224,7 @@ void Scheduler::Load()
         }
 
     }
+    int num1, num2;
     while (Input >> num1)
     {
         Input >> num2; //input pid of which of the processes i created?or create new process?

@@ -87,3 +87,23 @@ void Process::setORPH(bool f)
 
 bool Process::getORPH()
 {}
+
+//bool Process::operator<=(Process& Process2)
+//{
+//	if (CT <= Process2.getCT())
+//	{
+//		return true;
+//	}
+//	else
+//		return false;
+//}
+//
+//bool Process::operator>=(Process& Process2)
+//{
+//	if (CT >= Process2.getCT())
+//	{
+//		return true;
+//	}
+//	else
+//		return false;
+//}

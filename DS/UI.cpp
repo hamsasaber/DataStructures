@@ -20,21 +20,21 @@ void UI::InteractivePrint(int T, Processor** arr, int NF, int NS, int NR, Linked
 	{
 		cout << "processor " << i << " [FCFS]: ";
 		cout << arr[i]->getRDYCount() << "RDY: ";
-		arr[i]->PrintRDY();
+		arr[i]->GetRDY();
 		cout << endl;
 	}
 	for (int i = NF; i < (NS + NF); i++)
 	{
 		cout << "processor " << i << " [SJF]: ";
 		cout << arr[i]->getRDYCount() << "RDY: ";
-		arr[i]->PrintRDY();
+		arr[i]->GetRDY();
 		cout << endl;
 	}
 	for (int i = NS; i < (NR + NS + NF); i++)
 	{
 		cout << "processor " << i << " [RR]: ";
 		cout << arr[i]->getRDYCount() << "RDY: ";
-		arr[i]->PrintRDY();
+		arr[i]->GetRDY();
 		cout << endl;
 	}
 
@@ -50,7 +50,7 @@ void UI::InteractivePrint(int T, Processor** arr, int NF, int NS, int NR, Linked
 	{
 		if (arr[i]->getRun() != NULL)
 		{
-			cout << arr[i]->getRun()->getID() << arr[i]->getName();
+			cout << arr[i]->getRun()->getPID() << arr[i]->getName();
 		}
 		if (i = RUNCount - 1)
 		{
@@ -60,16 +60,16 @@ void UI::InteractivePrint(int T, Processor** arr, int NF, int NS, int NR, Linked
 			cout << ",";
 
 	}
-	//for (int i = 0; i < RUNCount; i++)
-	//{
-	//	cout << Running[i]->getID();  //last one will print, so use an if condition to stop that //need process to remove error
-	//	if (i = RUNCount - 1)
-	//	{
-	//		cout << "";//break?
-	//	}
-	//	else
-	//		cout << ",";
-	//}
+	for (int i = 0; i < RUNCount; i++)
+	{
+		cout << Running[i]->getPID();  //last one will print, so use an if condition to stop that //need process to remove error
+		if (i = RUNCount - 1)
+		{
+			cout << "";//break?
+		}
+		else
+			cout << ",";
+	}
 	cout << endl;
 	cout << "--------------------     TRM processes     --------------------" << endl;
 	cout << TRMCount;

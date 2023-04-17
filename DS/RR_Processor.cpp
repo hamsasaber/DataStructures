@@ -26,13 +26,13 @@ void RR_Processor::MoveToRun(Process a)
 	}
 }
 
-void RR_Processor::PrintRDY()
-{
-	RDY.print();
-}
-
 string RR_Processor::getName()
 {
 	string n = "RR_P";
 	return n;
+}
+
+void RR_Processor::dequeueRDY(Process p)
+{
+	RDY.dequeue(p);
 }

@@ -4,7 +4,6 @@
 //{
 //	return nullptr;
 //}
-
 Processor::Processor()
 {
 	Run = nullptr;
@@ -61,4 +60,10 @@ void Processor::setRun(Process*r)
 {
 	Run = r;
 }
+
+int Processor::GetRDY()
+{
+	return ID;
+}
+
 
