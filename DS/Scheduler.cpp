@@ -117,6 +117,7 @@ void Scheduler::Load()
         }
 
     }
+    int num1, num2;
     while (Input >> num1)
     {
         Input >> num2; //input pid of which of the processes i created?or create new process?

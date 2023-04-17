@@ -20,12 +20,12 @@ private:
 public:
 	Processor();
 	virtual void SchedulingAlgo() = 0;
-	virtual void EnqueueReady(Process p) = 0; //same as add process  NOT pure virtual it's the same implementation in all?
+	virtual void EnqueueReady(Process p); //same as add process  NOT pure virtual it's the same implementation in all?
 	void setSchedulingState(bool u); //sets the processor running state
 	bool getSchedulingState(); //returns the processor's running state
 	int getFinishTime(); //allowed?
 	int getRDYCount(); //give it as a parameter to enqueueready by reference
-	virtual void PrintRDY() = 0;
+	virtual void PrintRDY();
 	virtual string getName() = 0;
 	//virtual void DeleteProcess(Process p) = 0; //deletes a process after it moves it to termination or BLK ???
 	//do i have a copy of the process to delete it?
